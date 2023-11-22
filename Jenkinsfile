@@ -80,6 +80,16 @@ pipeline{
                }
             }
         }
+
+        stage('Upload Artifacts to Artifactory : Artifactory'){
+         when { expression {  params.action == 'create' } }
+            steps{
+               script{
+                   
+                   uploadArtifact()
+               }
+            }
+        }
         
         stage('Docker Image Build'){
          when { expression {  params.action == 'create' } }
