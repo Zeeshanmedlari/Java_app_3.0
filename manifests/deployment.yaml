@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Java_app_3
+  labels:
+    app: Java_app_3
+  namespace: namespace-workflow-1709617467080
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: Java_app_3
+  template:
+    metadata:
+      labels:
+        app: Java_app_3
+    spec:
+      containers:
+        - name: Java_app_3
+          image: acrworkflow1709617467080.azurecr.io/image-workflow-1709617467080:latest
+          ports:
+            - containerPort: 8080
